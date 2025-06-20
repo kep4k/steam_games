@@ -1,5 +1,6 @@
 # 🎮 steam_games  
 **Analysis of Best-Selling Steam Games of All Time**
+---
 
 ### 📊 Dataset Overview: Column Descriptions
 
@@ -22,6 +23,7 @@
 | `estimated_downloads`  | int64    | Estimated number of owners/downloads from SteamDB. |
 
 > 🙏 Thanks to **H. Buğra Eken** for preparing and providing this dataset!
+---
 
 ## 📁 Dataset Notes
 
@@ -30,6 +32,7 @@
 - Games were excluded if download estimates were not available via **SteamDB**.
 - Qualitative columns like `rating`, `difficulty`, and `length` were filled from **GameFAQs**, or estimated from user reviews when unavailable.
 - Tag data was cleaned and standardized into a fixed vocabulary of **42 tags**.
+---
 
 ## 🔍 Selected Columns for Analysis
 
@@ -43,22 +46,70 @@
 - ✅ `user_defined_tags` — для анализа жанров  
 - ✅ `supported_os` и `supported_languages` — для изучения доступности  
 - ✅ `price` — как фактор монетизации  
-- ✅ `estimated_downloads` — как основная метрика успеха  
+- ✅ `estimated_downloads` — как основная метрика популярности  
 - ⚠️ `age_restriction`, `rating`, `difficulty`, `length` — не будут использоваться из-за неопределённости в методах сбора
-
 ---
-Представим, что вы - разработчик. Вы хотите сделать игру. Вы не знаете, про что она, в каком жанре, какие у неё будут особенности. Пока что у вас просто есть желание сделать что-то, что поможет вам заплатить
-за жильё и поставить пару пломб на правую верхнюю пятёрку. Что повысит шансы на успех? Для этого нам нужно разработать ряд гипотез.
 
 ## ❓ Hypotheses and Analytical Questions
 
-### 🧠 Разработчики:
-- Есть ли связь между **числом игр от разработчика** и **успешностью** новых релизов?
+### Hypothesis 1: Do developers with multiple best-selling games produce more successful titles?
 
-### 🧪 Жанры и Теги (`user_defined_tags`):
-1. Как **жанровые предпочтения** игроков изменялись со временем? Есть ли циклы?
-2. Какие **топ-5 жанров** были самыми популярными за последние 5 лет?
-3. Можно ли предсказать рост популярности жанров с помощью **линейной регрессии**?
+***Business Question***
+Do developers who have multiple games in the best-sellers list on Steam tend to release more successful games than developers with only one game in the same list?
+
+***Rationale***
+If having more than one hit in this list correlates with stronger performance, that may support the idea that developer reputation or portfolio size impacts future game success. This could be useful for investors and publishers when evaluating studios.
+
+***Limitations***
+This dataset includes only 2380 Steam's best sellers games. We can not evaluate all developer's products, only those presented in this dataset. 
+
+***Metric of Success***
+We define a custom metric success as follows:
+
+success = estimated_downloads × reviews_like_rate × reviews_activity_rate
+
+estimated_downloads: proxy for audience reach
+
+reviews_like_rate values (e.g., 95) will be scaled to 0–1 by dividing by 100 before calculation: proxy for sentiment
+
+reviews_activity_rate: proxy for engagement, calculated as the ratio of a game’s number of reviews to the maximum review count in the dataset (i.e., normalized to the range 0–1)
+
+***Method***
+Use an independent two-sample t-test to compare the success scores of:
+
+Group A: Developers with only 1 game in the dataset
+
+Group B: Developers with 2 or more games in the dataset
+
+***Exploratory Task***
+Additionally, we will examine whether developers with 3 or more games in the dataset perform significantly better than the rest. This will be tested using one-way ANOVA, comparing three groups:
+
+Group 1: Developers with 1 game
+
+Group 2: Developers with 2 games
+
+Group 3: Developers with 3+ games
+
+
+### 📚 Hypothesis 2: Genre Trends Over Time
+
+***Business Question***  
+How have player genre preferences on Steam changed over time? Can we observe popularity cycles or genre-specific “eras”?
+
+***Rationale***
+Identifying long-term growth or decline — and especially cyclic behavior — can help anticipate future market demand.
+
+***Hypotheses***  
+- *2a*: The top 5 most successful game genres have changed significantly over the last 5 years.  
+- *2b*: Certain genres demonstrate cyclical popularity trends over the years.
+
+***Method***
+- Genre extraction and standardization from `user_defined_tags`.  
+- Time-based aggregation (by release year) of `success` and `estimated_downloads` per genre.  
+- Visualization using line charts, heatmaps, and rolling averages.  
+- Cyclicity analysis using ACF, STL decomposition, and exploratory time series tools.
+
+
 
 ### 📛 Название игры:
 - Влияет ли **длина названия** на успех?
@@ -72,10 +123,4 @@
 ### 🌍 Языковая доступность:
 - Обрекает ли **отсутствие английского языка** игру на неудачу?
 
----
-
-## 🛠️ To Do Next
-
-- Очистка и подготовка данных (`release_date`, `tags`, `features`, разбивка списков)
-- Построение визуализаций (тренды, жанры, платформы, цены)
-- Разработка модели или метрик для оценки «успешности»
+- ещё интересно, падает или повышается за последние годы успешность игр в понимании репутации, которое я разработал
