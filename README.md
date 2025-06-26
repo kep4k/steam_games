@@ -94,20 +94,48 @@ Group 3: Developers with 3+ games
 ### 📚 Hypothesis 2: Genre Trends Over Time
 
 ***Business Question***  
-How have player genre preferences on Steam changed over time? Can we observe popularity cycles or genre-specific “eras”?
+How have player genre preferences on Steam changed over time? 
 
 ***Rationale***
-Identifying long-term growth or decline — and especially cyclic behavior — can help anticipate future market demand.
+Identifying long-term growth or decline and especially cyclic behavior. It can help anticipate future market demand.
 
 ***Hypotheses***  
 - *2a*: The top 5 most successful game genres have changed significantly over the last 5 years.  
 - *2b*: Certain genres demonstrate cyclical popularity trends over the years.
+- *2c*: Two-genre combination can be found that leads to significantly higher game success than any individual genre or other genre pairs.
 
 ***Method***
-- Genre extraction and standardization from `user_defined_tags`.  
-- Time-based aggregation (by release year) of `success` and `estimated_downloads` per genre.  
-- Visualization using line charts, heatmaps, and rolling averages.  
-- Cyclicity analysis using ACF, STL decomposition, and exploratory time series tools.
+* 2a: Top Genres per Year
+Aggregate games by release year and genre.
+For each year, calculate average success per genre.
+Identify and visualize the top 5 genres by average success for each of the last 5 years.
+Compare yearly lists to assess stability or variation in genre rankings.
+
+* 2b: Cyclical Behavior
+For each genre (with enough sample size), plot time series of average success per year.
+Apply:
+Rolling averages to smooth trends.
+Optionally, Fourier Transform or seasonal decomposition to detect periodic patterns.
+Assess whether certain genres show repeated rises and falls.
+
+* 2c: Synergistic Genre Combinations
+One-hot encode genres.
+Generate all unordered two-genre combinations per game.
+Compute:
+Frequency of each genre pair.
+Average success per pair.
+Compare top genre pairs to top individual genres:
+Use t-tests or permutation tests to assess significance.
+
+Limitations
+Some genres or combinations may have low sample sizes.
+Steam release date may not reflect actual launch (e.g., for older games or ports).
+
+Potential Visualizations
+Bar charts of top genres by year.
+Line charts of genre success over time.
+Heatmaps of genre pair success.
+Radar plots or stacked area charts to show shifting genre dominance.
 
 
 
