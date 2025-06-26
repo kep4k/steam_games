@@ -91,7 +91,7 @@ Group 2: Developers with 2 games
 Group 3: Developers with 3+ games
 
 
-### 📚 Hypothesis 2: Genre Trends Over Time
+### Hypothesis 2: Genre Trends Over Time
 
 ***Business Question***  
 How have player genre preferences on Steam changed over time? 
@@ -137,18 +137,48 @@ Line charts of genre success over time.
 Heatmaps of genre pair success.
 Radar plots or stacked area charts to show shifting genre dominance.
 
+### Hypothesis 3: Does the Game Title Affect Success?
 
+***Business Question***
+Can characteristics of a game’s name such as its length, complexity, or presence of certain symbols influence its market success?
 
-### 📛 Название игры:
-- Влияет ли **длина названия** на успех?
-- Влияет ли наличие **двоеточий или специальных символов**?
-- Можно ли провести **ANOVA** по числу слов в названии?
+***Rationale***
+Game titles serve as a first impression for potential players. Short names may be easier to remember or market, while longer or more descriptive titles (e.g., with subtitles separated by colons) might convey genre, lore, or value. If certain naming patterns correlate with success, this insight could support decisions in branding or title design.
 
-### 💻 Поддержка ОС:
-- Обязательно ли наличие **Windows-версии** для достижения успеха?
-- Есть ли успешные игры без поддержки Windows?
+***Hypotheses***
 
-### 🌍 Языковая доступность:
-- Обрекает ли **отсутствие английского языка** игру на неудачу?
+3a. There is a statistically significant relationship between title length (in characters) and game success.
+3b. Games that contain colons (:) or special characters in their titles are more (or less) successful than those that don’t.
 
-- ещё интересно, падает или повышается за последние годы успешность игр в понимании репутации, которое я разработал
+### Hypothesis 4: Is Windows Support Essential for Success?
+
+Business Question
+Do games that support Windows perform significantly better than those that don’t?
+
+Rationale
+Windows is the dominant PC gaming platform. If support for it is necessary for success, developers must prioritize it. However, if games without Windows support can also succeed, that could encourage more cross-platform or niche development (e.g., Mac/Linux exclusives).
+
+Hypothesis
+Games without Windows support have significantly lower success scores than those with Windows support.
+
+### Hypothesis 5: Does English Language Support Determine Success?
+
+Business Question
+Does having English as a supported language significantly affect a game's success?
+
+Rationale
+English is often the default for global reach. If games without English support perform worse, localization becomes a critical business decision.
+
+Hypothesis
+Games without English language support have significantly lower success scores than games that support English.
+
+### Hypothesis 6: Is Game Success Trending Up or Down?
+
+Business Question
+Is the average success of best-selling Steam games improving or declining over the years?
+
+Rationale
+Tracking the health of the top-selling segment can give insight into overall industry trends: is user engagement and satisfaction growing, stable, or declining?
+
+Hypothesis
+There is a significant trend (upward or downward) in the average success score of games released between 2010 and 2025.
