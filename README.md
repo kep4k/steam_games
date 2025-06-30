@@ -60,7 +60,7 @@ The following columns will *not* be used due to uncertainty in their collection 
 | 2a | How have the top 5 genres changed over the last 5 years? | The top 5 genres by success have changed significantly across years. |
 | 2b | Are there genres that rise and fall in popularity cyclically? | Certain genres exhibit cyclical success patterns. |
 | 2c | Do certain genre combinations outperform single genres? | Some two-genre combinations result in significantly higher success than individual genres. |
-| 3a | Does the number of characters or words in a game's title affect success? | There is a difference success between games with different length. |
+| 3a | Does the number of characters or words in a game's title affect success? | There is a difference success between games with different length of title. |
 | 3b | Does the presence of special characters (like colons) affect success? | Titles with colons/special symbols differ in success from those without. |
 | 4  | Is Windows support necessary for a game’s success? | Games without Windows support have lower average success. |
 | 5  | Is English support necessary for global success? | Games without English support have lower average success. |
