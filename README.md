@@ -70,7 +70,7 @@ The following columns will *not* be used due to uncertainty in their collection 
 
 | Hypothesis | Method |
 |-----------|--------|
-| 1 | Two-sample t-test + One-way ANOVA for 1 vs 2 vs 3+ games per developer. |
+| 1 | Two-sample t-test. |
 | 2a | Aggregate average `success` by genre/year → visualize top 5 per year. |
 | 2b | Time series plots per genre → rolling averages, optional Fourier/seasonal decomposition. |
 | 2c | One-hot encode genres → generate genre pairs → compare average success via t-test or permutation test. |
