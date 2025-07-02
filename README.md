@@ -58,7 +58,7 @@ The following columns will *not* be used due to uncertainty in their collection 
 | ID | Research Question | Hypothesis |
 |----|-------------------|------------|
 | 1  | Do developers with multiple games in the best-sellers list produce more successful titles? | Developers with 2+ games in the dataset have higher average success scores. |
-| 2a | How have the top 5 genres changed over the last 5 years? | The top 5 genres by success have changed significantly across years. |
+| 2a | How have the top 5 genres changed over the last 5 years? | The top 5 genres by success have changed significantly across 5 last years. |
 | 2b | Are there genres that rise and fall in popularity cyclically? | Certain genres exhibit cyclical success patterns. |
 | 2c | Do certain genre combinations outperform single genres? | Some two-genre combinations result in significantly higher success than individual genres. |
 | 3a | Does the number of characters or words in a game's title affect success? | There is a difference success between games with different length of title. |
