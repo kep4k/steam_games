@@ -50,6 +50,7 @@ We will use the following variables in our analysis:
 
 The following columns will *not* be used due to uncertainty in their collection methods:  
 `age_restriction`, `rating`, `difficulty`, `length`
+
 ---
 
 ## Research Questions & Hypotheses
