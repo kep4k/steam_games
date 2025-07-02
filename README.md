@@ -58,14 +58,14 @@ The following columns will *not* be used due to uncertainty in their collection 
 | ID | Research Question | Hypothesis |
 |----|-------------------|------------|
 | 1  | Do developers with multiple games in the best-sellers list produce more successful titles? | Developers with 2+ games in the dataset have higher average success scores. |
-| 2a | How have the top 5 genres changed over the last 5 years? | The top 5 genres by success have changed significantly across 5 last years. |
-| 2b | Are there genres that rise and fall in popularity cyclically? | Certain genres exhibit cyclical success patterns. |
-| 2c | Do certain genre combinations outperform single genres? | Some two-genre combinations result in significantly higher success than individual genres. |
-| 3a | Does the number of characters or words in a game's title affect success? | There is a difference success between games with different length of title. |
-| 3b | Does the presence of special characters (like colons) affect success? | Titles with colons/special symbols differ in success from those without. |
+| 2a | What are the top 5 genres over the last 5 years? | -//- |
+| 2b | Do any genres exhibit cyclical success patterns? | -//- |
+| 2c | Do certain genre combinations outperform single genres? | -//- |
+| 3a | Does the number of characters or words in a game's title affect success? | -//- |
+| 3b | Does the presence of special characters (like colons) affect success? | -//- |
 | 4  | Is Windows support necessary for a game’s success? | Games without Windows support have lower average success. |
 | 5  | Is English support necessary for global success? | Games without English support have lower average success. |
-| 6  | Is the overall success of top Steam games rising or falling? | There is a statistically significant trend in average success scores over time. |
+| 6  | Is the overall success of top Steam games rising or falling? | -//- |
 
 ## Methodology Summary
 
