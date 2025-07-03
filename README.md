@@ -73,8 +73,7 @@ The following columns will *not* be used due to uncertainty in their collection 
 |-----------|--------|
 | 1 | Two-sample t-test. |
 | 2a | Aggregate average `success` by genre/year → visualize top 5 per year. |
-| 2b | Time series plots per genre → rolling averages, optional Fourier/seasonal decomposition. |
-| 2c | One-hot encode genres → generate genre pairs → compare average success via t-test or permutation test. |
+| 2b | One-hot encode genres → generate genre pairs → compare average success via t-test or permutation test. |
 | 3a | One-way ANOVA on game success across groups defined by title length. |
 | 3b | Two-sample t-test: titles with special characters vs without. |
 | 4 | Two-sample t-test: Windows support (yes/no) vs success. |
