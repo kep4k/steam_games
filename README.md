@@ -59,8 +59,7 @@ The following columns will *not* be used due to uncertainty in their collection 
 |----|-------------------|------------|
 | 1  | Do developers with multiple games in the best-sellers list produce more successful titles? | Developers with 2+ games in the dataset have higher average success scores. |
 | 2a | What are the top 5 genres over the last 5 years? | -//- |
-| 2b | Do any genres exhibit cyclical success patterns? | -//- |
-| 2c | Do certain genre combinations outperform single genres? | -//- |
+| 2b | Do certain genre combinations outperform single genres? | -//- |
 | 3a | Does the number of characters or words in a game's title affect success? | -//- |
 | 3b | Does the presence of special characters (like colons) affect success? | -//- |
 | 4  | Is Windows support necessary for a game’s success? | Games without Windows support have lower average success. |
