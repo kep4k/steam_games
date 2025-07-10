@@ -354,6 +354,13 @@ t_stat, p_val = ttest_ind(linux_games, non_linux_games, equal_var=False)
 print(f"T-статистика: {t_stat:.4f}")
 print(f"P-значение: {p_val:.4f}")
 
+# Calculate Cohen's d
+std_linux = np.std(linux_games, ddof=1)
+std_non_linux = np.std(non_linux_games, ddof=1)
+pooled_std = np.sqrt((std_linux ** 2 + std_non_linux ** 2) / 2)
+cohen_d = (mean_linux - mean_non_linux) / pooled_std
+print(f"Cohen's d: {cohen_d:.3f}")
+
 # HYPOTHESIS 5
 
 df['lang'] = df['supported_languages'].str.split(',')
