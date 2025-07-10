@@ -22,6 +22,7 @@
 | `length`               | int64    | Average gameplay length in hours (capped at 80h). |
 | `estimated_downloads`  | int64    | Estimated number of owners/downloads from SteamDB. |
 
+The dataset (`bestSelling_games.csv`) is included in this repository.
 > Thanks to **H. Buğra Eken** for preparing and providing this dataset!
 ---
 
@@ -86,7 +87,7 @@ success = estimated_downloads × reviews_like_rate × reviews_activity_rate
 
 estimated_downloads: proxy for audience reach
 reviews_like_rate values (e.g., 95) will be scaled to 0–1 by dividing by 100 before calculation: proxy for sentiment
-reviews_activity_rate: proxy for engagement, calculated as the ratio of a game’s number of reviews to the maximum review count in the dataset (i.e., normalized to the range 0–1)
+reviews_activity_rate: proxy for engagement, calculated as the ratio of a game’s number of reviews to the amount of downloads of this game (i.e., normalized to the range 0–1). Initially, it was planned to calculate it as the ratio of a game’s number of reviews to the maximum review count in the dataset, but this would have created an evaluation of the game in relation to the best, so we changed it.
 
 ## Limitations
 
@@ -97,13 +98,35 @@ reviews_activity_rate: proxy for engagement, calculated as the ratio of a game�
 - Some qualitative variables were estimated, not scraped.
 - The `success` metric is heuristic and not equivalent to revenue or ROI.
 
+## Key Findings (Linked to Hypotheses)
+
+| ID | Research Question | Result & Key Finding |
+|----|------------|----------------------|
+| 1  | Do developers with multiple games in the best-sellers list produce more successful titles? | **Confirmed.** Developers with multiple games in the best-sellers list produce more successful titles. Significant but small effect was found.  |
+| 2a | What are the top 5 genres over the last 5 years? | <img width="1000" height="400" alt="top5genres" src="https://github.com/user-attachments/assets/cde3242c-38ae-4849-86a1-a438b1dce927" /> |
+| 2b | Do certain genre combinations outperform single genres? | **Rejected.** Although some genre pairs like *(FPS, Tactical)* had higher average success, no combinations were statistically significant. |
+| 3a | Does the number of characters or words in a game’s title affect success? | **Rejected.** As a result of ANOVA, we did not receive evidence that games of different lengths have significantly different success rates |
+| 3b | Does the presence of special characters (like colons) affect success? | **Rejected.** Games with colons showed slightly higher average success, but the difference was not statistically significant. |
+| 4  | Is Windows support necessary for a game’s success? | **Not testable.** All games in the dataset support Windows. Instead, we tested **Linux support**, which was associated with significantly higher success, but effect size was small. |
+| 5  | Is English support necessary for global success? | **Not testable.** All games supported English. Instead, we tested **Traditional Chinese support**, which was associated with significantly higher success, but effect size was also small. |
+| 6  | Is the overall success of top Steam games rising or falling? | Linear regression shows a **small but statistically significant decline** in success over time. <img width="1200" height="600" alt="success downloads" src="https://github.com/user-attachments/assets/c90fa776-f547-457d-a7a5-fe646cb6a62a" />
+
 ---
 
-## Visualizations Planned
+## Additional Findings
 
-- Top 5 genre bar charts (per year)
-- Genre trend line plots (with smoothing or decomposition)
-- Heatmaps for genre pair success
-- Title-length histograms vs success
-- OS/language support boxplots
-- Overall success trends by release year
+- **Success distribution is heavily left-skewed**, so we applied a log transformation for visualization.
+<img width="1200" height="600" alt="success" src="https://github.com/user-attachments/assets/460f2353-6117-4b52-ad1c-1ab1a403270e" />
+
+- **Number of top-selling games per year has increased**, indicating growing developer presence or platform saturation.
+<img width="1200" height="500" alt="games" src="https://github.com/user-attachments/assets/909d14a6-d3ef-4e8e-8fb8-ef9d81aa2ecf" />
+
+- **Average game price has remained relatively stable over time**, with no clear upward trend.
+<img width="1400" height="500" alt="price" src="https://github.com/user-attachments/assets/18ea340e-4643-4754-9e2a-8456ea93fbf7" />
+
+---
+
+## How to run project
+
+Install libraries from requirements.txt
+Use code from steam_analysis.py
