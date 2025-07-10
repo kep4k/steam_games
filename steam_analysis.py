@@ -9,7 +9,7 @@ from itertools import combinations
 from scipy.stats import ttest_ind, f_oneway, linregress
 
 # Load dataset (adjust the path if needed)
-df = pd.read_csv(r"C:\Users\mynam\Desktop\Среди знати\steam games project\bestSelling_games.csv")
+df = pd.read_csv("data/bestSelling_games.csv")
 
 ## Initial overview
 
