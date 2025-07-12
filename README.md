@@ -130,7 +130,7 @@ reviews_activity_rate: proxy for engagement, calculated as the ratio of a gameâ€
 
 - Developers targeting global markets should consider localizing into Traditional Chinese.
 - The popularity of fantasy, souls-like, and open-world genres over multiple years suggests continued market demand in those areas.
-- Declining success over time suggests increasing market saturation â€” studios should invest in innovation.
+- Declining success over time suggests increasing market saturation - studios should invest in innovation.
 
 ---
 
